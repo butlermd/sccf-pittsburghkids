@@ -1,22 +1,38 @@
-.navbar {
-  background-color: @light-green;
-  color: @green;
+@import "bootstrap-overrides.less";
+
+.navbar.navbar-default {
+  background-color: @dark-blue;
+  color: @dark-blue;
+  min-height: 30px;
+  font-size: 1.7em;
+  line-height: 1em;
 
   .navbar-brand {
     .serif-font();
-    color: @green;
+    font-size: 1em;
+    line-height: 1em;
+    color: @light-blue;
+    padding: 0.25em;
 
     .blue {
       color: @blue;
     }
   }
 
-  &.navbar-default {
-    .navbar-nav {
-      li {
-        a {
-          color: green;
+  .navbar-nav {
+    & > li {
+      &.active {
+        & > a {
+          background-color: @blue;
+          color: @white;
         }
+      }
+      & > a {
+        color: @green;
+        line-height: 1.5em;
+        height: 1.5em;
+        padding: 0.25em 0.5em;
+        margin-top: -0.15em;
       }
     }
   }

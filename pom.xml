@@ -26,8 +26,8 @@
 
     <dependencies>
         <!--<dependency>-->
-            <!--<groupId>org.springframework.boot</groupId>-->
-            <!--<artifactId>spring-boot-starter-security</artifactId>-->
+        <!--<groupId>org.springframework.boot</groupId>-->
+        <!--<artifactId>spring-boot-starter-security</artifactId>-->
         <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -143,10 +143,20 @@
                         <version>3.2.0</version>
                     </dependency>
                     <dependency>
-                    <groupId>org.webjars</groupId>
-                    <artifactId>angular-ui-router</artifactId>
-                    <version>0.2.18</version>
-                </dependency>
+                        <groupId>org.webjars</groupId>
+                        <artifactId>angular-ui-router</artifactId>
+                        <version>0.2.18</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.webjars</groupId>
+                        <artifactId>font-awesome</artifactId>
+                        <version>4.5.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.webjars.bower</groupId>
+                        <artifactId>lodash</artifactId>
+                        <version>4.6.1</version>
+                    </dependency>
                 </dependencies>
             </plugin>
         </plugins>

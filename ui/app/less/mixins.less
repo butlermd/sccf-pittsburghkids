@@ -10,3 +10,33 @@
 .serif-font() {
   font-family: @font-family-serif;
 }
+
+.i-am-a() {
+  .i-am-a(0);
+}
+
+.i-am-a(@margin) {
+  .full-screen-with-background-color(@light-blue);
+  padding-top: 12em;
+  color: @white;
+  margin-top: @margin;
+
+  .iama-label {
+    .serif-font();
+    font-size: 5em;
+
+    .blue {
+      color: @blue;
+    }
+  }
+
+  .iama {
+    margin-top: 1em;
+    .btn {
+      padding: .4em 0;
+      font-size: 1.5em;
+      border-radius: .15em;
+      text-transform: uppercase;
+    }
+  }
+}
