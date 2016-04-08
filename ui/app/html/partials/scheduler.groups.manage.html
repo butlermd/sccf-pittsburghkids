@@ -1,17 +1,157 @@
-<div class="home">
-  <div class="row workflow-select text-center">
-    <div class="iama-label col-xs-12">
-      <span class="blue">I'd like to...</span>
+<div class="manage">
+  <div class="heading">
+    <ol class="breadcrumb">
+      <li>{{$ctrl.mode}} Group</li>
+      <li ng-if="$ctrl.activePage === 3">Exhibits</li>
+    </ol>
+  </div>
+  <div class="page" ng-if="$ctrl.activePage === 1">
+    <div class="form-group">
+      <label for="name">Group Name</label>
+      <input type="input" ng-model="$ctrl.group.name" class="form-control" id="name" placeholder="Group Name ">
     </div>
-    <div class="iama row col-xs-12">
-      <button class="btn btn-default btn-large btn-primary col-xs-8 col-xs-offset-2" ui-sref="scheduler.groups.new"
-              role="button">Add a new group
-      </button>
+    <div class="form-group">
+      <label for="primary-contact">Primary Contact</label>
+      <input type="input" ng-model="$ctrl.group.primaryContact" class="form-control" id="primary-contact"
+             placeholder="Primary Contact">
     </div>
-    <div class="iama row col-xs-12">
-      <button class="btn btn-default btn-large btn-primary col-xs-8 col-xs-offset-2" ui-sref="scheduler.groups.edit" role="button">
-        Modify a Group
-      </button>
+    <div class="form-group">
+      <label for="school-district">School District</label>
+      <input type="input" ng-model="$ctrl.group.schoolDistrict" class="form-control" id="school-district"
+             placeholder="School District">
+    </div>
+    <div class="form-group">
+      <label for="contact-phone">Contact Phone</label>
+      <input type="input" ng-model="$ctrl.group.contactPhone" class="form-control" id="contact-phone"
+             placeholder="Contact Phone">
+    </div>
+    <div class="form-group">
+      <label for="contact-email">Contact Email </label>
+      <input type="input" ng-model="$ctrl.group.contactEmail" class="form-control" id="contact-email"
+             placeholder="Contact Email ">
+    </div>
+    <div class="form-group">
+      <label for="contact-address">Contact Address </label>
+      <input type="input" ng-model="$ctrl.group.contactAddress" class="form-control" id="contact-address"
+             placeholder="Contact Address ">
+    </div>
+    <div class="form-group">
+      <label for="contact-city">Contact City </label>
+      <input type="input" ng-model="$ctrl.group.contactCity" class="form-control" id="contact-city"
+             placeholder="Contact City ">
+    </div>
+    <div class="form-group">
+      <label for="contact-state">Contact State</label>
+      <input type="input" ng-model="$ctrl.group.contactState" class="form-control" id="contact-state"
+             placeholder="Contact State">
+    </div>
+    <div class="form-group">
+      <label for="contact-zip">Contact Zipcode </label>
+      <input type="input" ng-model="$ctrl.group.contactZip" class="form-control" id="contact-zip"
+             placeholder="Contact Zipcode ">
+    </div>
+    <div class="form-group">
+      <label>Transportation:</label>
+      <label class="radio-inline">
+        <input type="radio" ng-model="$ctrl.group.transport" name="transport" id="transport-bus" value="bus"> Bus
+      </label>
+      <label class="radio-inline">
+        <input type="radio" ng-model="$ctrl.group.transport" name="transport" id="transport-car" value="car"> Car
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" ng-model="$ctrl.group.guided" value="true" name="guidedVisit" id="guided-visit">
+        Guided Visit
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        <input type="checkbox" ng-model="$ctrl.group.special" value="true" name="specialAccommodations"
+               id="special-accommodations">
+        Special Accommodations
+      </label>
+    </div>
+    <div class="form-group">
+      <label for="comments">Additional Instructions</label>
+      <textarea ng-model="$ctrl.group.comments" rows="4" class="form-control" id="comments"
+                placeholder="Type Comments here"></textarea>
+    </div>
+    <nav>
+      <ul class="pager">
+        <li class="pager-right"><a ng-click="$ctrl.activePage = 2">Next</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="page" ng-if="$ctrl.activePage === 2">
+    <!--composition page-->
+    <div class="form-group">
+      <label for="date">Date </label>
+      <input type="input" ng-model="$ctrl.group.date" class="form-control" id="date" placeholder="Date ">
+    </div>
+    <div class="form-group">
+      <div class="form-group">
+        <label for="arrival-time">Arrival Time</label>
+        <input type="input" ng-model="$ctrl.group.arrivalTime" class="form-control" id="arrival-time"
+               placeholder="Arrival Time">
+      </div>
+      <div class="form-group">
+        <label for="depart-time">Depart Time</label>
+        <input type="input" ng-model="$ctrl.group.departTime" class="form-control" id="depart-time"
+               placeholder="Depart Time">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Lunch Accommodations:</label>
+      <label class="radio-inline">
+        <input type="radio" ng-model="$ctrl.group.lunch" name="lunch" id="lunch-brought" value="brought"> Brought
+      </label>
+      <label class="radio-inline">
+        <input type="radio" ng-model="$ctrl.group.lunch" name="lunch" id="lunch-box" value="box"> Box
+      </label>
+      <label class="radio-inline">
+        <input type="radio" ng-model="$ctrl.group.lunch" name="lunch" id="lunch-none" value="none"> None
+      </label>
+    </div>
+
+    <div ng-repeat="subgroup in $ctrl.group.subgroups" class="subgroup">
+      <div class="form-group">
+        <div class="form-group">
+          <label for="subgroup-size">Subgroup Size</label>
+          <input type="input" ng-model="$ctrl.group.subgroup[$index].kids" class="form-control" id="subgroup-size" placeholder="Enter Number">
+        </div>
+        <div class="form-group">
+          <label for="subgroup-age">Subgroup Age</label>
+          <input type="input" ng-model="$ctrl.group.subgroup[$index].age" class="form-control" id="subgroup-age" placeholder="Select">
+        </div>
+        <div class="form-group">
+          <label for="subgroup-adults">Number of Adults</label>
+          <input type="input"  ng-model="$ctrl.group.subgroup[$index].adults" class="form-control" id="subgroup-adults" placeholder="Enter Number">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Exhibits of interest</label>
+        <button ng-click="$ctrl.getExhibitsByAgeForSubgroup($index)">Auto By Age</button>
+        <button ng-click="$ctrl.activePage = 3">Manual Select</button>
+        <!--TODO: put selected exhibits in the boxes (labels with glyphicons?)-->
+      </div>
+    </div>
+
+    <div class="form-group">
+      <a ng-click="$ctrl.addSubgroup()"><span class="glyphicon glyphicon-plus-sign"></span> Add Another Subgroup</a>
+    </div>
+
+    <nav>
+      <div class="pull-right"><a ng-click="$ctrl.submit()" class="btn btn-success">GO</a></div>
+    </nav>
+  </div>
+  <div class="page row" ng-if="$ctrl.activePage === 3">
+    <!--exhibit page-->
+    <div class="progress col-xs-6 col-xs-offset-3" ng-if="!$ctrl.exhibits">
+      <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0"
+           aria-valuemax="100" style="width: 100%">
+        <span class="sr-only">Loading</span>
+      </div>
     </div>
   </div>
 </div>

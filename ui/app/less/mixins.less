@@ -1,10 +1,14 @@
-.full-screen-with-background-color(@color) {
-  top: 0;
+.full-screen-with-background-color(@color, @top) {
+  top: @top;
   bottom: 0;
   right: 0;
   left: 0;
   background-color: @color;
   position: absolute;
+}
+
+.full-screen-with-background-color(@color) {
+  .full-screen-with-background-color(@color, 0)
 }
 
 .serif-font() {

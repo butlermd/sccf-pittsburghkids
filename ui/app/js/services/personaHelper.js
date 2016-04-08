@@ -4,11 +4,11 @@ angular.module('pittsburghkids')
       map: ['scheduler', 'guide', 'chaperone'],
       schedule: ['scheduler', 'guide'],
       groups: ['scheduler'],
-      exhibits: ['scheduler'],
+      exhibits: ['scheduler']
     };
 
-    this.getPersona = function () {
-      return $location.path()[0];
+    this.linkStatus = function (link) {
+      return $state.includes(link) ? 'active' : '';
     };
 
     this.islinkAllowed = function (link) {

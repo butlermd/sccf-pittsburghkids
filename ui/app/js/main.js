@@ -24,25 +24,29 @@ angular.module('pittsburghkids', [
       templateUrl: 'partials/scheduler.schedule.html'
     })
     .state('persona.groups', {
+      url: '/groups',
       templateUrl: 'partials/scheduler.groups.html'
     })
     .state('persona.groups.home', {
-      url: '/groups',
       templateUrl: 'partials/scheduler.groups.home.html'
     })
     .state('persona.groups.new', {
       url: '/new',
-      templateUrl: 'partials/scheduler.groups.manage.html'
+      templateUrl: 'partials/scheduler.groups.manage.html',
+      controller: 'GroupManageCtrl',
+      controllerAs: '$ctrl'
     })
     .state('persona.groups.edit', {
       url: '/{groupId:int}/edit',
       templateUrl: 'partials/scheduler.groups.manage.html',
-      controller: 'GroupEditCtrl' //needs to inject stateParams (it's an object with the params)
+      controller: 'GroupManageCtrl',
+      controllerAs: '$ctrl' //needs to inject stateParams (it's an object with the params)
     })
     .state('persona.groups.list', {
       url: '/list',
       templateUrl: 'partials/scheduler.groups.list.html',
-      controller: 'GroupListCtrl'
+      controller: 'GroupListCtrl',
+      controllerAs: '$ctrl'
     })
     .state('persona.exhibits', {
       url: '/exhibits',

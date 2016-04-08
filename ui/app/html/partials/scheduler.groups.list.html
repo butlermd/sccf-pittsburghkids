@@ -1,17 +1,7 @@
-<div class="home">
-  <div class="row workflow-select text-center">
-    <div class="iama-label col-xs-12">
-      <span class="blue">I'd like to...</span>
-    </div>
-    <div class="iama row col-xs-12">
-      <button class="btn btn-default btn-large btn-primary col-xs-8 col-xs-offset-2" ui-sref="scheduler.groups.new"
-              role="button">Add a new group
-      </button>
-    </div>
-    <div class="iama row col-xs-12">
-      <button class="btn btn-default btn-large btn-primary col-xs-8 col-xs-offset-2" ui-sref="scheduler.groups.edit" role="button">
-        Modify a Group
-      </button>
-    </div>
+<div class="list row list-group">
+  <div ng-repeat="group in ::$ctrl.existingGroups" class="list-group-item col-xs-12 row">
+    <button type="button" ui-sref="persona.groups.edit({persona: 'scheduler', groupId: group.id})">
+      <span class="col-xs-11">{{::group.name}}</span><span class="glyphicon glyphicon-chevron-right col-xs-1"></span>
+    </button>
   </div>
 </div>
