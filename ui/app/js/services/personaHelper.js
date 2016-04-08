@@ -8,11 +8,11 @@ angular.module('pittsburghkids')
     };
 
     this.linkStatus = function (link) {
-      return $state.includes(link) ? 'active' : '';
+      return $state.includes('persona.' + link + '.**') ? 'active' : '';
     };
 
     this.islinkAllowed = function (link) {
-      return _.some(permissions[link], function(persona) {
+      return _.some(permissions[link], function (persona) {
         return $state.includes('persona', {'persona': persona});
       });
     };

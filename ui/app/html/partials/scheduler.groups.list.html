@@ -1,7 +1,6 @@
 <div class="list row list-group">
-  <div ng-repeat="group in ::$ctrl.existingGroups" class="list-group-item col-xs-12 row">
-    <button type="button" ui-sref="persona.groups.edit({persona: 'scheduler', groupId: group.id})">
-      <span class="col-xs-11">{{::group.name}}</span><span class="glyphicon glyphicon-chevron-right col-xs-1"></span>
-    </button>
-  </div>
+  <button ng-repeat="group in $ctrl.existingGroups" class="list-group-item col-xs-12 row" type="button"
+          ui-sref="persona.groups.edit({persona: 'scheduler', groupId: group.id})">
+    <span class="col-xs-11">{{group.name}}</span><span class="glyphicon glyphicon-chevron-right col-xs-1"></span>
+  </button>
 </div>

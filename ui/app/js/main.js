@@ -17,7 +17,9 @@ angular.module('pittsburghkids', [
     })
     .state('persona.map', {
       url: '/map',
-      templateUrl: 'partials/scheduler.map.html'
+      templateUrl: 'partials/scheduler.map.html',
+      controller: 'MapCtrl',
+      controllerAs: '$ctrl'      
     })
     .state('persona.schedule', {
       url: '/schedule',
@@ -26,9 +28,6 @@ angular.module('pittsburghkids', [
     .state('persona.groups', {
       url: '/groups',
       templateUrl: 'partials/scheduler.groups.html'
-    })
-    .state('persona.groups.home', {
-      templateUrl: 'partials/scheduler.groups.home.html'
     })
     .state('persona.groups.new', {
       url: '/new',

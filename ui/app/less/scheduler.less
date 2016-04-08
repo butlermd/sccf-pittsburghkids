@@ -1,8 +1,47 @@
 @import "mixins.less";
+@import "bootstrap-overrides.less";
 
-@navbarHeight: unit(92, px);
+@navbarHeight: unit(2.31, em);
 
 .scheduler {
+  .map {
+    .full-screen-with-background-color(@turquoise, @navbarHeight);
+
+    .capacity-warning {
+      background-color: @light-yellow;
+    }
+
+    .map-image {
+      height: 100%;
+      width: 100%;
+    }
+
+    .badge {
+      font-size: 1em;
+      &-danger {
+        background-color: @red;
+      }
+      &-warning {
+        background-color: @yellow;
+      }
+      &-info {
+        background-color: @blue;
+      }
+    }
+
+    .popover {
+      font-size: 0.75em;
+      position: absolute;
+      display: block;
+      margin: 20px;
+      max-width: 100%;
+      width: 15em;
+
+      &-title {
+        font-size: 1em;
+      }
+    }
+  }
   .groups {
     .home {
       .workflow-select {
@@ -17,24 +56,35 @@
       .group-listing {
         border-bottom: 5px #cccccc solid;
         padding: 0.25em;
+        text-align: left;
+
+        .list-group-item {
+          padding-left: 1em;
+          background-color: @turquoise;
+          color: @light-blue;
+        }
       }
     }
 
     .manage {
       .full-screen-with-background-color(@white, @navbarHeight);
 
-      .header {
+      .heading {
+        color: @white;
+        font-weight: bold;
         .breadcrumb {
+          background-color: @blue;
           margin-bottom: 1em;
         }
       }
 
       .form-group {
-        width: calc(~"100% - 2em");
+        width: ~"calc(100% - 2em)";
         padding: 0 1em;
 
         .form-control {
           font-size: 1em;
+          line-height: 1em;
           height: auto;
         }
       }
@@ -42,12 +92,12 @@
       .pager {
         margin: 1em 0;
 
-        &-right{
+        &-right {
           float: right;
           margin-right: 3em;
         }
 
-        &-left{
+        &-left {
           float: left;
           margin-left: 3em;
         }

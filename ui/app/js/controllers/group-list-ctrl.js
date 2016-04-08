@@ -1,6 +1,7 @@
 angular.module('pittsburghkids')
   .controller('GroupListCtrl', ['dataService', function (dataService) {
+    var self = this;
     dataService.getGroups().then(function (data) {
-      this.existingGroups = data;
+      self.existingGroups = data;
     });
   }]);

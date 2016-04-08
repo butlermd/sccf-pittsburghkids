@@ -3,7 +3,7 @@ angular.module('pittsburghkids')
     var groups = [
       {
         id: 0,
-        name: 'The Invading Chitauri',
+        name: 'Invading Chitauri',
         primaryContact: 'Ronan the Destroyer',
         schoolDistrict: 'Kree Space',
         contactPhone: '1 (123) 456-7891',
@@ -79,6 +79,5 @@ angular.module('pittsburghkids')
 
     this.getGroups = function () {
       return $q.when(groups);
-    }
-
+    }    
   }]);

@@ -1,20 +1,22 @@
 angular.module('pittsburghkids')
   .controller('GroupManageCtrl', ['$state', '$stateParams', 'dataService', function ($state, $stateParams, dataService) {
-    this.mode = $state.includes('persona.groups.new') ? 'New' : 'Edit';
+    var self = this;
 
-    this.activePage = 1;
+    self.mode = $state.includes('persona.groups.new') ? 'New' : 'Edit';
 
-    if (this.mode === 'New') {
-      this.group = {
+    self.activePage = 1;
+
+    if (self.mode === 'New') {
+      self.group = {
         subgroups: [{}]
       };
     } else {
       dataService.getGroup($stateParams.groupId).then(function (data) {
-        this.group = data;
+        self.group = data;
       });
     }
 
-    this.addSubgroup = function () {
-      this.group.subgroups.push({});
+    self.addSubgroup = function () {
+      self.group.subgroups.push({});
     }
   }]);

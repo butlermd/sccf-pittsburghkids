@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
       <label for="contact-phone">Contact Phone</label>
-      <input type="input" ng-model="$ctrl.group.contactPhone" class="form-control" id="contact-phone"
+      <input type="tel" ng-model="$ctrl.group.contactPhone" class="form-control" id="contact-phone"
              placeholder="Contact Phone">
     </div>
     <div class="form-group">
@@ -87,17 +87,18 @@
     <!--composition page-->
     <div class="form-group">
       <label for="date">Date </label>
-      <input type="input" ng-model="$ctrl.group.date" class="form-control" id="date" placeholder="Date ">
+      <input type="date" ng-model="$ctrl.group.date" class="form-control" id="date" placeholder="Date ">
+      <!--TODO: add a calendar icon here-->
     </div>
     <div class="form-group">
       <div class="form-group">
         <label for="arrival-time">Arrival Time</label>
-        <input type="input" ng-model="$ctrl.group.arrivalTime" class="form-control" id="arrival-time"
+        <input type="time" ng-model="$ctrl.group.arrivalTime" class="form-control" id="arrival-time"
                placeholder="Arrival Time">
       </div>
       <div class="form-group">
         <label for="depart-time">Depart Time</label>
-        <input type="input" ng-model="$ctrl.group.departTime" class="form-control" id="depart-time"
+        <input type="time" ng-model="$ctrl.group.departTime" class="form-control" id="depart-time"
                placeholder="Depart Time">
       </div>
     </div>
@@ -118,15 +119,15 @@
       <div class="form-group">
         <div class="form-group">
           <label for="subgroup-size">Subgroup Size</label>
-          <input type="input" ng-model="$ctrl.group.subgroup[$index].kids" class="form-control" id="subgroup-size" placeholder="Enter Number">
+          <input type="number" ng-model="$ctrl.group.subgroup[$index].kids" class="form-control" id="subgroup-size" placeholder="Enter Number">
         </div>
         <div class="form-group">
           <label for="subgroup-age">Subgroup Age</label>
-          <input type="input" ng-model="$ctrl.group.subgroup[$index].age" class="form-control" id="subgroup-age" placeholder="Select">
+          <input type="number" ng-model="$ctrl.group.subgroup[$index].age" class="form-control" id="subgroup-age" placeholder="Select">
         </div>
         <div class="form-group">
           <label for="subgroup-adults">Number of Adults</label>
-          <input type="input"  ng-model="$ctrl.group.subgroup[$index].adults" class="form-control" id="subgroup-adults" placeholder="Enter Number">
+          <input type="number"  ng-model="$ctrl.group.subgroup[$index].adults" class="form-control" id="subgroup-adults" placeholder="Enter Number">
         </div>
       </div>
       <div class="form-group">

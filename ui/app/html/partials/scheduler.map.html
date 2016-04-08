@@ -1,3 +1,298 @@
-<div class="container-fluid">
-  Map view under construction
+<div class="map">
+  <div ng-repeat="exhibit in ::$ctrl.exhibits" ng-click="$ctrl.togglePopover(exhibit)">
+    <span class="badge" ng-class="$ctrl.badgeType(exhibit)" ng-style="exhibit.badgePosition">
+       {{exhibit.total}}
+    </span>
+    <div class="popover {{exhibit.popover.side}}" ng-if="exhibit.popover.active" ng-style="exhibit.popover">
+      <div class="arrow"></div>
+      <div class="popover-title">
+        <span class="badge" ng-class="$ctrl.badgeType(exhibit)">
+          {{exhibit.total}}/{{exhibit.capacity}}
+        </span>
+      </div>
+      <div class="popover-content">
+        <ul class="list-group">
+          <li class="list-group-item row" ng-repeat="group in exhibit.groups | filter : $ctrl.filterNegativeTimeLeft">
+            <div class="col-xs-10">
+              <span class="col-xs-12">{{group.name}}</span>
+              <span class="col-xs-10 col-xs-offset-2">{{group.timeLeft}} min remaining</span>
+            </div>
+            <div class="col-xs-2">
+              <span class="badge badge-info">{{group.count}}</span>
+            </div>
+          </li>
+          <li class="list-group-item row" ng-repeat="group in exhibit.groups | filter : $ctrl.filterInNegativeTimeLeft">
+            <div class="col-xs-10">
+              <span class="col-xs-12">{{group.name}}</span>
+              <span class="col-xs-10 col-xs-offset-2">{{group.timeLeft * -1}} min scheduled</span>
+            </div>
+            <div class="col-xs-2">
+              <span class="badge badge-info">{{group.count}}</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <svg class="map-image" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 272.9 521.8">
+    <style>
+      .a {
+        fill: #3FA4A8;
+      }
+
+      .b {
+        fill: #FFF;
+      }
+    </style>
+    <defs>
+      <polygon points="256.9 371 256.9 398.9 180.2 398.9 180.2 382.4 217.6 382.4 217.6 371 "/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_1_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_2_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_3_"/>
+      </clipPath>
+      <rect x="175.2" y="366" width="86.8" height="37.8" style="clip-path:url(#SVGID_4_);fill:#7CC142;opacity:0.4"/>
+    </g>
+    <defs>
+      <polygon
+          points="162.9 401.5 64.7 401.5 64.7 503.8 238.8 503.8 238.8 401.5 176.1 401.5 176.1 401.7 238.8 401.7 238.8 474.3 98.9 474.3 98.9 401.7 162.9 401.7 "/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_5_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_6_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_7_"/>
+      </clipPath>
+      <rect x="59.7" y="396.5" width="184.1" height="112.3" style="clip-path:url(#SVGID_8_);fill:#7CC142;opacity:0.4"/>
+    </g>
+    <defs>
+      <rect x="16.2" y="15.8" width="199.1" height="49.6"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_9_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_10_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_11_"/>
+      </clipPath>
+      <rect x="11.2" y="10.8" width="209.1" height="59.6" style="clip-path:url(#SVGID_12_);fill:#7CC142;opacity:0.4"/>
+    </g>
+    <defs>
+      <polygon
+          points="177.2 380.1 215.3 380.1 215.3 75.4 148.2 75.4 148.2 348.8 119.3 348.8 119.3 220.1 119.3 215.5 101.3 215.5 101.3 200 119.3 200 119.3 150.4 101.3 150.4 101.3 135 119.3 135 119.3 85.4 17.2 85.4 17.2 135 34.2 135 34.2 150.4 17.2 150.4 17.2 200 34.2 200 34.2 215.5 17.2 215.5 17.2 265.1 52.2 265.1 52.2 294.3 17.2 294.3 17.2 380.7 52.2 380.7 52.2 381 119.3 381 119.3 363.1 148.2 363.1 148.2 380.1 164.2 380.1 164.2 425.9 177.2 425.9 "/>
+    </defs>
+    <use xlink:href="#SVGID_13_" class="a"/>
+    <clipPath>
+      <use xlink:href="#SVGID_13_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_14_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <use xlink:href="#SVGID_15_" class="a"/>
+      <clipPath>
+        <use xlink:href="#SVGID_15_"/>
+      </clipPath>
+      <rect x="12.2" y="70.4" width="208.1" height="360.5" style="clip-path:url(#SVGID_16_);fill:#3FA4A8;opacity:0.3"/>
+    </g>
+    <defs>
+      <rect x="17.2" y="85.4" width="102" height="49.6"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_17_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_18_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_19_"/>
+      </clipPath>
+      <rect x="12.2" y="80.4" width="112" height="59.6" style="clip-path:url(#SVGID_20_);fill:#006572"/>
+    </g>
+    <defs>
+      <rect x="148.2" y="75.4" width="67.1" height="189.4"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_21_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_22_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_23_"/>
+      </clipPath>
+      <rect x="143.2" y="70.4" width="77.1" height="199.4" style="clip-path:url(#SVGID_24_);fill:#006572"/>
+    </g>
+    <defs>
+      <rect x="17.2" y="150.3" width="68" height="49.6"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_25_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_26_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_27_"/>
+      </clipPath>
+      <rect x="12.2" y="145.3" width="78" height="59.6" style="clip-path:url(#SVGID_28_);fill:#006572"/>
+    </g>
+    <defs>
+      <rect x="17.2" y="215.6" width="68" height="49.6"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_29_"/>
+    </clipPath>
+    <g id="map-attic" clip-path="url(#SVGID_30_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_31_"/>
+      </clipPath>
+      <rect x="12.2" y="210.6" width="78" height="59.6" style="clip-path:url(#SVGID_32_);fill:#FF7F8E"/>
+    </g>
+    <defs>
+      <polygon points="85.2 363.2 85.2 294.2 17.2 294.2 17.2 380.8 85.2 380.8 85.2 380.8 118.9 380.8 118.9 363.2 "/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_33_"/>
+    </clipPath>
+    <g id="map-makeshop" clip-path="url(#SVGID_34_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_35_"/>
+      </clipPath>
+      <rect x="12.2" y="289.2" width="111.8" height="96.6" style="clip-path:url(#SVGID_36_);fill:#006572"/>
+    </g>
+    <defs>
+      <rect x="101.2" y="150.6" width="18.1" height="49.6"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_37_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_38_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_39_"/>
+      </clipPath>
+      <rect x="96.2" y="145.6" width="28.1" height="59.6" style="clip-path:url(#SVGID_40_);fill:#006572"/>
+    </g>
+    <defs>
+      <rect x="101.2" y="215.6" width="18.1" height="49.6"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_41_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_42_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_43_"/>
+      </clipPath>
+      <rect x="96.2" y="210.6" width="28.1" height="59.6" style="clip-path:url(#SVGID_44_);fill:#006572"/>
+    </g>
+    <defs>
+      <rect x="101.2" y="294.2" width="18.1" height="54.6"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_45_"/>
+    </clipPath>
+    <g clip-path="url(#SVGID_46_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_47_"/>
+      </clipPath>
+      <rect x="96.2" y="289.2" width="28.1" height="64.6" style="clip-path:url(#SVGID_48_);fill:#006572"/>
+    </g>
+    <defs>
+      <rect x="101.3" y="401.9" width="137.5" height="70.3"/>
+    </defs>
+    <clipPath>
+      <use xlink:href="#SVGID_49_"/>
+    </clipPath>
+    <g id="map-studio" class="capacity-warning" clip-path="url(#SVGID_50_)">
+      <defs>
+        <rect x="16.2" y="15.8" width="241" height="488"/>
+      </defs>
+      <clipPath>
+        <use xlink:href="#SVGID_51_"/>
+      </clipPath>
+      <rect x="96.3" y="396.9" width="147.5" height="80.3" style="clip-path:url(#SVGID_52_);fill:#fffd7f"/>
+    </g>
+    <text transform="matrix(1 0 0 1 24.1765 33.7815)">
+      <tspan font-family="'Lato-Bold'" font-size="10" class="b"> OUTDOOR</tspan>
+      <tspan x="54.1" font-family="'Lato-Bold'" font-size="10" class="b"> P</tspan>
+      <tspan x="59.8" font-family="'Lato-Bold'" font-size="10" class="b"> ATIO</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 154.1765 117.9814)" font-family="'Lato-Bold'" font-size="10" class="b"> THE BIG
+    </text>
+    <text transform="matrix(1 0 0 1 154.1765 128.1811)" font-family="'Lato-Bold'" font-size="10" class="b"> RED</text>
+    <text transform="matrix(1 0 0 1 154.1765 138.3819)">
+      <tspan font-family="'Lato-Bold'" font-size="10" class="b"> R</tspan>
+      <tspan x="6.3" font-family="'Lato-Bold'" font-size="10" class="b"> OOM</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 154.1765 148.5817)" font-family="'Lato-Bold'" font-size="10" class="b"> CAFE</text>
+    <text transform="matrix(1 0 0 1 154.1765 88.9813)">
+      <tspan font-family="'Lato-Bold'" font-size="10" class="b"> P</tspan>
+      <tspan x="5.7" font-family="'Lato-Bold'" font-size="10" class="b"> ATIO</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 21.1765 98.5996)" font-family="'Lato-Bold'" font-size="10" class="b"> CHANGING
+    </text>
+    <text transform="matrix(1 0 0 1 21.1765 108.7994)" font-family="'Lato-Bold'" font-size="10" class="b"> EXHIBIT
+    </text>
+    <text transform="matrix(1 0 0 1 21.1765 162.9814)">
+      <tspan font-family="'Lato-Bold'" font-size="10" class="b"> G</tspan>
+      <tspan x="7.2" font-family="'Lato-Bold'" font-size="10" class="b"> ARAGE</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 104.1765 162.9814)" font-family="'Lato-Bold'" font-size="10" class="b"> A1</text>
+    <text transform="matrix(1 0 0 1 104.1765 227.9814)" font-family="'Lato-Bold'" font-size="10" class="b"> A2</text>
+    <text transform="matrix(1 0 0 1 104.1765 307.9813)" font-family="'Lato-Bold'" font-size="10" class="b"> LB</text>
+    <text transform="matrix(1 0 0 1 21.1765 227.9814)" font-family="'Lato-Bold'" font-size="10" class="b"> ATTIC</text>
+    <text transform="matrix(1 0 0 1 21.1765 307.9813)" font-family="'Lato-Bold'" font-size="10" class="b"> MAKESHOP
+    </text>
+    <text transform="matrix(1 0 0 1 154.1765 278.9813)">
+      <tspan font-family="'Lato-Bold'" font-size="10" class="b"> L</tspan>
+      <tspan x="4.9" font-family="'Lato-Bold'" font-size="10" class="b"> OB</tspan>
+      <tspan x="19.6" font-family="'Lato-Bold'" font-size="10" class="b"> B</tspan>
+      <tspan x="26" font-family="'Lato-Bold'" font-size="10" class="b"> Y</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 107.1765 416.8018)" font-family="'Lato-Bold'" font-size="10" class="b"
+          style="fill:#333"> STUDIO
+    </text>
+    <text transform="matrix(1 0 0 1 75.1765 493.1766)">
+      <tspan font-family="'Lato-Bold'" font-size="10" class="b"> B</tspan>
+      <tspan x="6.5" font-family="'Lato-Bold'" font-size="10" class="b"> ACK</tspan>
+      <tspan x="26.9" font-family="'Lato-Bold'" font-size="10" class="b"> Y</tspan>
+      <tspan x="32.6" font-family="'Lato-Bold'" font-size="10" class="b"> ARD</tspan>
+    </text>
+    <text transform="matrix(1 0 0 1 184.1765 394.4813)">
+      <tspan font-family="'Lato-Bold'" font-size="10" class="b"> G</tspan>
+      <tspan x="7.2" font-family="'Lato-Bold'" font-size="10" class="b"> ARDEN</tspan>
+    </text>
+    <line x1="149.7" y1="102.3" x2="214.8" y2="102.3" style="fill:none;stroke-dasharray:3;stroke:#208C89"/>
+  </svg>
 </div>
