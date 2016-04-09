@@ -27,8 +27,8 @@ angular.module('pittsburghkids')
         popover: {
           side: 'right',
           active: false,
-          top: '485px',
-          left: '343px'
+          top: '472px',
+          left: '220px'
         }
       },
       {
@@ -79,10 +79,11 @@ angular.module('pittsburghkids')
     this.exhibits.forEach(function (exhibit) {
       var exhibitBox = document.getElementById(exhibit.svgId).getBoundingClientRect();
 
+      console.log(exhibitBox)
       exhibit.badgePosition = {
         position: 'absolute',
-        top: 'calc(' + exhibitBox.bottom + 'px - 3.81em)',
-        left: 'calc(' + exhibitBox.left + 'px - 1.75em + ' + exhibitBox.width + 'px)'
+        top: 'calc(' + exhibitBox.bottom + 'px - 4.06em)',
+        left: 'calc(' + exhibitBox.left + 'px + 0.5em)'
       };
     });
 

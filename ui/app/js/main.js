@@ -23,7 +23,9 @@ angular.module('pittsburghkids', [
     })
     .state('persona.schedule', {
       url: '/schedule',
-      templateUrl: 'partials/scheduler.schedule.html'
+      templateUrl: 'partials/scheduler.schedule.html',
+      controller: 'SchedulerCtrl',
+      controllerAs: '$ctrl'
     })
     .state('persona.groups', {
       url: '/groups',

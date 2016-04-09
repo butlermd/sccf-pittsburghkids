@@ -51,7 +51,7 @@
              placeholder="Contact Zipcode ">
     </div>
     <div class="form-group">
-      <label>Transportation:</label>
+      <label class="macro-label">Transportation:</label>
       <label class="radio-inline">
         <input type="radio" ng-model="$ctrl.group.transport" name="transport" id="transport-bus" value="bus"> Bus
       </label>
@@ -103,7 +103,7 @@
       </div>
     </div>
     <div class="form-group">
-      <label>Lunch Accommodations:</label>
+      <label class="macro-label">Lunch Accommodations:</label>
       <label class="radio-inline">
         <input type="radio" ng-model="$ctrl.group.lunch" name="lunch" id="lunch-brought" value="brought"> Brought
       </label>
@@ -131,7 +131,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label>Exhibits of interest</label>
+        <label class="macro-label">Exhibits of interest</label>
         <button ng-click="$ctrl.getExhibitsByAgeForSubgroup($index)">Auto By Age</button>
         <button ng-click="$ctrl.activePage = 3">Manual Select</button>
         <!--TODO: put selected exhibits in the boxes (labels with glyphicons?)-->

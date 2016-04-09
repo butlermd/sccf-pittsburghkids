@@ -71,7 +71,9 @@
 
       .heading {
         color: @white;
+        font-size: 1.3em;
         font-weight: bold;
+
         .breadcrumb {
           background-color: @blue;
           margin-bottom: 1em;
@@ -81,6 +83,10 @@
       .form-group {
         width: ~"calc(100% - 2em)";
         padding: 0 1em;
+
+        label.macro-label {
+          display: block;
+        }
 
         .form-control {
           font-size: 1em;
@@ -101,6 +107,33 @@
           float: left;
           margin-left: 3em;
         }
+      }
+    }
+  }
+  .schedule {
+    .schedule-image {
+      background-color: @turquoise;
+    }
+
+    .heading {
+      font-size: 1.3em;
+      font-weight: bold;
+
+      .active-group {
+        background-color: @light-blue;
+        color: @dark-blue;
+        margin: 0;
+
+        .extra-info {
+          font-size: .75em;
+        }
+      }
+
+      .today {
+        padding-left: 1em;
+        width: 100%;
+        color: @white;
+        background-color: @blue;
       }
     }
   }
